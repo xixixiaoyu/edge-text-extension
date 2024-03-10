@@ -7,14 +7,12 @@ window.onload = function () {
     position: absolute;
     display: none; /* 默认不显示，需要时改为 block */
     padding: 20px;
-    background-color: #fff; /* 浮窗的背景颜色 */
+    background-color: #F5F5DC; /* 浮窗的背景颜色 */
     border-radius: 10px; /* 圆角 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), /* 水平偏移 垂直偏移 模糊距离 颜色 */
                 0 6px 20px rgba(0, 0, 0, 0.1); /* 内阴影 */
-    z-index: 1000; /* 确保浮窗在其他元素上方 */
+    z-index: 100000; /* 确保浮窗在其他元素上方 */
     /* 可以根据需要调整上、左位置 */
-    top: 100px; /* 浮窗距离顶部的位置 */
-    left: 100px; /* 浮窗距离左侧的位置 */
 }
 `;
 	// 将样式元素添加到文档的头部
