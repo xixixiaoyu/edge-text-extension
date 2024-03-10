@@ -7,7 +7,7 @@ window.onload = function () {
     position: absolute;
     display: none; /* 默认不显示，需要时改为 block */
     padding: 20px;
-    background-color: #F5F5DC; /* 浮窗的背景颜色 */
+    background-color: #FFF9DB; /* 浮窗的背景颜色 */
     border-radius: 10px; /* 圆角 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), /* 水平偏移 垂直偏移 模糊距离 颜色 */
                 0 6px 20px rgba(0, 0, 0, 0.1); /* 内阴影 */
