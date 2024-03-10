@@ -70,7 +70,7 @@ window.onload = function () {
 			const lastRect = rects[rects.length - 1];
 			if (lastRect) {
 				// 定位图标容器到最后一行的右边和顶部
-				iconContainer.style.left = `${lastRect.right + window.scrollX}px`;
+				iconContainer.style.left = `${lastRect.right + window.scrollX + 5}px`;
 				iconContainer.style.top = `${lastRect.top + window.scrollY}px`;
 				iconContainer.style.display = 'block';
 			}
