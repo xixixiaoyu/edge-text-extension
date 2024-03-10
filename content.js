@@ -80,7 +80,9 @@ window.onload = function () {
 	});
 
 	window.addEventListener('scroll', () => {
-		popupContainer.style.top = window.scrollY + 'px';
+		if (popupContainer && popupContainer.style.display === 'block') {
+			popupContainer.style.top = window.scrollY + 'px';
+		}
 	});
 
 	// 修改图标的点击事件
