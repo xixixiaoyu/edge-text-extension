@@ -5,8 +5,8 @@ window.onload = function () {
 	styleElement.textContent = `
 	.popup-container {
 		overflow: auto;
-		max-height: 700px;
     position: absolute;
+		max-height: 800px;
     display: none; /* 默认不显示，需要时改为 block */
     padding: 20px;
     background-color: #FFF9DB; /* 浮窗的背景颜色 */
@@ -88,8 +88,12 @@ window.onload = function () {
 		}
 	});
 
-	window.addEventListener('scroll', () => {
-		if (popupContainer && popupContainer.style.display === 'block') {
+	window.addEventListener('scroll', e => {
+		if (
+			popupContainer &&
+			popupContainer.style.display === 'block' &&
+			e.target !== popupContainer
+		) {
 			popupContainer.style.top = window.scrollY + 'px';
 		}
 	});
