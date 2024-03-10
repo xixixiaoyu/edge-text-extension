@@ -4,6 +4,7 @@ window.onload = function () {
 	// 设置样式内容
 	styleElement.textContent = `
 	.popup-container {
+		overflow: auto;
     position: absolute;
     display: none; /* 默认不显示，需要时改为 block */
     padding: 20px;
@@ -43,6 +44,15 @@ window.onload = function () {
 		dataElement.textContent = '';
 	};
 	popupContainer.appendChild(closeButton);
+
+	// 创建关闭弹窗的按钮
+	const scaleButton = document.createElement('button');
+	scaleButton.textContent = '缩小';
+	scaleButton.style.marginLeft = '15px';
+	scaleButton.onclick = function () {
+		popupContainer.style.height = '200px';
+	};
+	popupContainer.appendChild(scaleButton);
 
 	// 创建一个用于显示数据的元素
 	const dataElement = document.createElement('div');
