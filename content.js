@@ -5,6 +5,7 @@ window.onload = function () {
 	styleElement.textContent = `
 	.popup-container {
 		overflow: auto;
+		max-height: 700px;
     position: absolute;
     display: none; /* 默认不显示，需要时改为 block */
     padding: 20px;
