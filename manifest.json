@@ -1,0 +1,24 @@
+{
+	"manifest_version": 3,
+	"name": "文本阅读优化",
+	"version": "1.0",
+	"description": "A brief description of the extension",
+	"icons": {
+		"16": "icons/logo.png",
+		"48": "icons/logo.png",
+		"128": "icons/logo.png"
+	},
+	"web_accessible_resources": [
+		{
+			"resources": ["icons/logo.png"],
+			"matches": ["<all_urls>"]
+		}
+	],
+	"permissions": ["activeTab"],
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["marked.js", "content.js"]
+		}
+	]
+}
