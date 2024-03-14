@@ -6,7 +6,7 @@ window.onload = function () {
 	.popup-container {
 		overflow: auto;
     position: absolute;
-		max-height: 800px;
+		max-height: 700px;
     display: none; /* 默认不显示，需要时改为 block */
     padding: 20px;
     background-color: #FFF9DB; /* 浮窗的背景颜色 */
