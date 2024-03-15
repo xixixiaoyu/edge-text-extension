@@ -6,7 +6,7 @@ window.onload = function () {
 	.popup-container {
 		overflow: auto;
     position: absolute;
-		max-height: 700px;
+		height: auto;
     display: none; /* 默认不显示，需要时改为 block */
     padding: 20px;
     background-color: #FFF9DB; /* 浮窗的背景颜色 */
@@ -43,6 +43,7 @@ window.onload = function () {
 	closeButton.onclick = function () {
 		popupContainer.style.display = 'none';
 		dataElement.textContent = '';
+		popupContainer.style.height = 'auto';
 	};
 	popupContainer.appendChild(closeButton);
 
@@ -51,7 +52,7 @@ window.onload = function () {
 	scaleButton.textContent = '缩小';
 	scaleButton.style.marginLeft = '15px';
 	scaleButton.onclick = function () {
-		popupContainer.style.height = '200px';
+		popupContainer.style.height = '300px';
 	};
 	popupContainer.appendChild(scaleButton);
 
@@ -126,9 +127,9 @@ window.onload = function () {
 				{
 					role: 'system',
 					content: `回答请仔细遵循以下三项原则：
-											1.担当与提问最相关的专家角色，提供最有价值且实用详尽的回答。
+											1.担当与提问最相关的专家角色，提供实用详尽的回答。
 											2.回答请符合标准文档格式规范，如中文与英文之间需要空格等。
-											3.回答要通俗易懂，经过彻底的研究和反复的思考，只提供准确可靠的信息。`,
+											3.回答要通俗易懂，经过彻底的研究和反复的思考，提供准确可靠的信息。`,
 				},
 				{ role: 'user', content: text + selectedText },
 			],
@@ -162,14 +163,19 @@ window.onload = function () {
 							}
 							// 将 Uint8Array 转换为字符串并处理数据
 							const chunk = new TextDecoder().decode(value);
-							dataElement.innerHTML += marked.parse(
-								JSON.parse(chunk).choices[0].message.content
-							); // 追加新的内容到元素中
+							popupContainer.style.height = '700px';
+							if (popupContainer.style.display !== 'none') {
+								dataElement.innerHTML += marked.parse(
+									JSON.parse(chunk).choices[0].message.content
+								); // 追加新的内容到元素中
+							}
 							read(); // 继续读取下一个数据块
 						})
 						.catch(error => {
 							console.error('读取数据出错:', error);
-							dataElement.textContent = '读取数据失败';
+							if (popupContainer.style.display !== 'none') {
+								dataElement.textContent = '读取数据失败';
+							}
 						});
 				}
 
@@ -177,7 +183,9 @@ window.onload = function () {
 			})
 			.catch(error => {
 				console.error('请求数据出错:', error);
-				dataElement.textContent = '加载失败';
+				if (popupContainer.style.display !== 'none') {
+					dataElement.textContent = '加载失败';
+				}
 			});
 	}
 };
