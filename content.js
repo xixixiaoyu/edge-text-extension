@@ -164,18 +164,14 @@ window.onload = function () {
 							// 将 Uint8Array 转换为字符串并处理数据
 							const chunk = new TextDecoder().decode(value);
 							popupContainer.style.height = '700px';
-							if (popupContainer.style.display !== 'none') {
-								dataElement.innerHTML += marked.parse(
-									JSON.parse(chunk).choices[0].message.content
-								); // 追加新的内容到元素中
-							}
+							dataElement.innerHTML += marked.parse(
+								JSON.parse(chunk).choices[0].message.content
+							); // 追加新的内容到元素中
 							read(); // 继续读取下一个数据块
 						})
 						.catch(error => {
 							console.error('读取数据出错:', error);
-							if (popupContainer.style.display !== 'none') {
-								dataElement.textContent = '读取数据失败';
-							}
+							dataElement.textContent = '读取数据失败';
 						});
 				}
 
@@ -183,9 +179,7 @@ window.onload = function () {
 			})
 			.catch(error => {
 				console.error('请求数据出错:', error);
-				if (popupContainer.style.display !== 'none') {
-					dataElement.textContent = '加载失败';
-				}
+				dataElement.textContent = '加载失败';
 			});
 	}
 };
