@@ -25,6 +25,20 @@ window.onload = function () {
 	// 将样式元素添加到文档的头部
 	document.head.appendChild(styleElement);
 
+	function getContent() {
+		const selectedText = window.getSelection().toString();
+		iconContainer.style.display = 'none';
+		dataElement.innerHTML = ''; // 清空之前的内容
+		// popupContainer.style.left = `${iconContainer.style.left}`;
+		popupContainer.style.left = 0;
+		popupContainer.style.top = window.scrollY + 'px';
+
+		popupContainer.style.display = 'block';
+
+		// 发送请求获取数据
+		fetchData(selectedText);
+	}
+
 	// 创建一个弹窗容器
 	const popupContainer = document.createElement('div');
 	popupContainer.classList.add('popup-container');
@@ -60,6 +74,10 @@ window.onload = function () {
 		popupContainer.style.height = '300px';
 	};
 	popupContainer.appendChild(scaleButton);
+
+	const retryButton = document.createElement('button');
+	retryButton.textContent = '重试';
+	retryButton.addEventListener('click', getContent);
 
 	// 创建一个用于显示数据的元素
 	const dataElement = document.createElement('div');
@@ -105,20 +123,7 @@ window.onload = function () {
 	});
 
 	// 修改图标的点击事件
-	iconContainer.addEventListener('click', () => {
-		const selectedText = window.getSelection().toString();
-		console.log('选中的文本:', selectedText);
-		iconContainer.style.display = 'none';
-		dataElement.innerHTML = ''; // 清空之前的内容
-		// popupContainer.style.left = `${iconContainer.style.left}`;
-		popupContainer.style.left = 0;
-		popupContainer.style.top = window.scrollY + 'px';
-
-		popupContainer.style.display = 'block';
-
-		// 发送请求获取数据
-		fetchData(selectedText);
-	});
+	iconContainer.addEventListener('click', getContent);
 
 	const text =
 		'请对提供的内容进行全面整理优化，具体任务包括：将内容分类并重新组织，使其条理分明、逻辑缜密；改进措辞，确保语言通俗易懂；检查和修正错误，保持内容的准确性；必要时补充相关知识，丰富内容的深度和广度。请直接给出最终优化后的内容，原始内容：  ';
