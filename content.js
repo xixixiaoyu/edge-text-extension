@@ -7,6 +7,7 @@ window.onload = function () {
 		overflow: auto;
     position: absolute;
 		height: auto;
+		font-size: 16px;
     display: none; /* 默认不显示，需要时改为 block */
     padding: 20px;
     background-color: #FFF9DB; /* 浮窗的背景颜色 */
