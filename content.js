@@ -78,6 +78,7 @@ window.onload = function () {
 	const retryButton = document.createElement('button');
 	retryButton.textContent = '重试';
 	retryButton.addEventListener('click', getContent);
+	popupContainer.appendChild(retryButton);
 
 	// 创建一个用于显示数据的元素
 	const dataElement = document.createElement('div');
