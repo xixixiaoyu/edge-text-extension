@@ -15,6 +15,10 @@ window.onload = function () {
                 0 6px 20px rgba(0, 0, 0, 0.1); /* 内阴影 */
     z-index: 100000; /* 确保浮窗在其他元素上方 */
     /* 可以根据需要调整上、左位置 */
+
+		* {
+			user-select: text !important;
+		}
 }
 `;
 	// 将样式元素添加到文档的头部
