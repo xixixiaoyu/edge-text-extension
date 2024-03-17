@@ -25,10 +25,10 @@ window.onload = function () {
 	// 将样式元素添加到文档的头部
 	document.head.appendChild(styleElement);
 
-	let selectedText = '';
+	let __selectedText__ = '';
 
 	function getContent() {
-		selectedText = window.getSelection().toString() || selectedText;
+		__selectedText__ = window.getSelection().toString() || __selectedText__;
 		iconContainer.style.display = 'none';
 		dataElement.innerHTML = ''; // 清空之前的内容
 		popupContainer.style.left = 0;
@@ -37,7 +37,7 @@ window.onload = function () {
 		popupContainer.style.display = 'block';
 
 		// 发送请求获取数据
-		fetchData(selectedText);
+		fetchData(__selectedText__);
 	}
 
 	// 创建一个弹窗容器
