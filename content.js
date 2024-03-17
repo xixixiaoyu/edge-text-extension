@@ -25,11 +25,12 @@ window.onload = function () {
 	// 将样式元素添加到文档的头部
 	document.head.appendChild(styleElement);
 
+	let selectedText = '';
+
 	function getContent() {
-		const selectedText = window.getSelection().toString();
+		selectedText = window.getSelection().toString() || selectedText;
 		iconContainer.style.display = 'none';
 		dataElement.innerHTML = ''; // 清空之前的内容
-		// popupContainer.style.left = `${iconContainer.style.left}`;
 		popupContainer.style.left = 0;
 		popupContainer.style.top = window.scrollY + 'px';
 
