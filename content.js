@@ -175,7 +175,7 @@ window.onload = function () {
 							}
 							// 将 Uint8Array 转换为字符串并处理数据
 							const chunk = new TextDecoder().decode(value);
-							popupContainer.style.height = '700px';
+							popupContainer.style.height = '600px';
 							dataElement.innerHTML += marked.parse(
 								JSON.parse(chunk).choices[0].message.content
 							); // 追加新的内容到元素中
