@@ -78,6 +78,7 @@ window.onload = function () {
 
 	const retryButton = document.createElement('button');
 	retryButton.textContent = '重试';
+	retryButton.style.marginLeft = '15px';
 	retryButton.addEventListener('click', getContent);
 	popupContainer.appendChild(retryButton);
 
