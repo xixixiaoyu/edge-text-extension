@@ -129,7 +129,7 @@ window.onload = function () {
 	iconContainer.addEventListener('click', getContent);
 
 	const text =
-		'请对提供的内容进行全面整理优化，具体任务包括：将内容分类并重新组织，使其条理分明、逻辑清晰；改进措辞，确保语言通俗易懂、自然流畅；检查和修正错误，保持内容的准确性；必要时补充相关知识，丰富内容的深度和广度。请直接给出最终优化后的内容，原始内容：  ';
+		'请对提供的原始内容进行全面整理优化，具体任务包括：在不减少原有信息密度的前提下，将内容分类并重新组织，使其条理分明、精炼紧凑；改进措辞，确保语言通俗易懂、自然流畅；检查和修正错误，保持内容的准确性；必要时补充相关知识，丰富内容的深度和广度；符合标准文档格式规范，如中文与英文之间需要空格等。直接给出最终优化后的内容，原始内容：  ';
 
 	// 定义获取数据的函数
 	function fetchData(selectedText) {
@@ -153,8 +153,7 @@ window.onload = function () {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization:
-					'eyJhbGciOiJIUzI1NiIsInNpZ25fdHlwZSI6IlNJR04ifQ.eyJhcGlfa2V5IjoiNWVkYTdhYTQyYzZjOThkY2UwODIyOTBhMTE2ZjBmOWMiLCJleHAiOiIxNzEzNjYwNjUyMDU4IiwidGltZXN0YW1wIjoiMTcxMDA2MDUyMzgyNyJ9.WP_49lxwjN3fwCmd9EeH0YYVJbJ1vIOaW82eRF5Lzjc',
+				Authorization: '009e3905b671d42aab053b5b781bd0ef.mpNi4SMsHsXA1tc8',
 			},
 			body: JSON.stringify(requestParams),
 		})
